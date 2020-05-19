@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 const DataSchema = new mongoose.Schema({
     primeiroNome: String,
     ultimoNome: String,
-    emailCliente:String,
-    senhaCliente:String,
-    nascimento: Date,
+    emailCliente: String,
+    senhaCliente: String,
+    nascimento: String,
     cpf: String,
     estadoCivil: String,
     genero: String,
@@ -14,16 +14,17 @@ const DataSchema = new mongoose.Schema({
     altura: Number,
     tipoSanguineo: String,
     massaMuscular: Number,
-},{
-    timestamp:true
+}, {
+    timestamp: true
 });
 
 //function p/ criptografar a senha antes de gravar
-DataSchema.pre('save',function(next){
-   if(this.isModified("senha_cliente")){
-       return next();
-   }
-   this.senha_cliente = bcrypt.hashSync(this.senha_cliente,10);
+DataSchema.pre('save', function (next) {
+    if (this.isModified("senhaCliente")) {
+        return next();
+    }
+    this.senhaCliente = bcrypt.hashSync(this.senhaCliente, 10);
+    next();
 });
 
 const customers = mongoose.model('Customers', DataSchema);
