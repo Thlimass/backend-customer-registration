@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
 const  mongoose = require('mongoose');
+const routes = require('./src/routes');
 
 
 const app = express();
@@ -21,14 +22,10 @@ mongoose.connect('mongodb://localhost:27017',{
 })
 
 app.use(cors()); //segurança p/ informar quais dominios estão cosumindo os dados da API.
-
 app.use(cookieParser());
-
 app.use(express.json()); //Usa quando precisa enviar e receber JSON do BACK p/ o FRONT.
 
-app.get('/', function(req,res){
-    res.json({message:'Hello World'});
-});
+app.use(routes);
 
 //Iniciando o servidor.
 app.listen(port,function(){
