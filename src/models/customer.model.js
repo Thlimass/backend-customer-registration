@@ -8,12 +8,12 @@ const DataSchema = new mongoose.Schema({
     senha_cliente:String,
     nascimento: Date,
     cpf: String,
-    estadoCivil: String,
+    estado_civil: String,
     genero: String,
     cor: String,
     altura: Number,
-    tipoSanguineo: String,
-    massaMuscular: Number,
+    tipo_sanguineo: String,
+    massa_muscular: Number,
 },{
     timestamp:true
 });
