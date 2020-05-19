@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const DataSchema = new mongoose.Schema({
-    primeiro_nome: String,
-    ultimo_nome: String,
-    email_cliente:String,
-    senha_cliente:String,
+    primeiroNome: String,
+    ultimoNome: String,
+    emailCliente:String,
+    senhaCliente:String,
     nascimento: Date,
     cpf: String,
-    estado_civil: String,
+    estadoCivil: String,
     genero: String,
     cor: String,
     altura: Number,
-    tipo_sanguineo: String,
-    massa_muscular: Number,
+    tipoSanguineo: String,
+    massaMuscular: Number,
 },{
     timestamp:true
 });

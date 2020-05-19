@@ -5,7 +5,18 @@ module.exports = {
         res.json({message: 'Hello World from Controller Customer'});
     },
    async create(req, res){
-       const {primeiro_nome, ultimo_nome, email_cliente, senha_cliente, nascimento, cpf, estado_civil, genero, cor, altura, tipo_sanguineo, massa_muscular} = req.body;
+       const {primeiroNome,
+           ultimoNome,
+           emailCliente,
+           senhaCliente,
+           nascimento,
+           cpf,
+           estadoCivil,
+           genero,
+           cor,
+           altura,
+           tipoSanguineo,
+           massaMuscular} = req.body;
 
        let data = {};
 
@@ -13,18 +24,18 @@ module.exports = {
        //se não existir, cadastra o cliente.
        if(!client) {
            data = {
-               primeiro_nome,
-               ultimo_nome,
-               email_cliente,
-               senha_cliente,
+               primeiroNome,
+               ultimoNome,
+               emailCliente,
+               senhaCliente,
                nascimento,
                cpf,
-               estado_civil,
+               estadoCivil,
                genero,
                cor,
                altura,
-               tipo_sanguineo,
-               massa_muscular
+               tipoSanguineo,
+               massaMuscular
            };
            client = await Customers.create(data); //salva o cliente.
            return res.status(200).json(client);

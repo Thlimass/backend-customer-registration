@@ -2,8 +2,9 @@ const express = require('express');
 
 const routes = express.Router();
 
-routes.get('/',function(req,res){
-    res.json({message:'Hello World'});
-});
+const Customers = require('./controllers/customers.controllers')
+
+routes.get('/',Customers.index);
+routes.post('/api/customers',Customers.create);
 
 module.exports = routes;
