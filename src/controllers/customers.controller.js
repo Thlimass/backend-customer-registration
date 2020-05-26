@@ -57,7 +57,7 @@ module.exports = {
     },
     async delete(req, res){
         const {_id} = req.params;
-        const client = await Customers.findOne({_id});
+        const client = await Customers.findByIdAndDelete({_id});
         return res.json(client);
-    }
+    },
 }
