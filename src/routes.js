@@ -9,6 +9,7 @@ routes.get('/', Customers.index);
 routes.post('/api/customers',Customers.create);
 routes.get('/api/customers',Customers.index); //lista clientes
 routes.get('/api/customers.details/:_id',Customers.details); //exibir cliente
+routes.delete('/api/customers/:_id',Customers.delete);//deleta cliente
 
 
 module.exports = routes;

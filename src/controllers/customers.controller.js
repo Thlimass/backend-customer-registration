@@ -55,5 +55,9 @@ module.exports = {
         const client = await Customers.findOne({_id});
         res.json(client);
     },
-
+    async delete(req, res){
+        const {_id} = req.params;
+        const client = await Customers.findOne({_id});
+        return res.json(client);
+    }
 }
