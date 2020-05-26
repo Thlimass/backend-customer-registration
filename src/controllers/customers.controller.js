@@ -49,15 +49,25 @@ module.exports = {
 
         }
     },
-    //detalhes de apenas um cliente
+    //detalha de apenas um cliente
     async details(req, res) {
         const {_id} = req.params;
         const client = await Customers.findOne({_id});
         res.json(client);
     },
-    async delete(req, res){
+    //deleta apenas um cliente
+    async delete(req, res) {
         const {_id} = req.params;
         const client = await Customers.findByIdAndDelete({_id});
         return res.json(client);
     },
+    async update(req, res) {
+        const { _id,primeiroNome, ultimoNome, emailCliente, senhaCliente, nascimento, cpf, estadoCivil, genero, cor, altura, tipoSanguineo, massaMuscular
+        } = req.body
+        const data = {
+            primeiroNome, ultimoNome, emailCliente, senhaCliente, nascimento, cpf, estadoCivil, genero, cor, altura, tipoSanguineo, massaMuscular
+        };
+        const client = await Customers.findByIdAndUpdate({_id},data,{new:true});
+        res.json(client);
+    }
 }
