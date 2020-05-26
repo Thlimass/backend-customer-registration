@@ -48,6 +48,12 @@ module.exports = {
             return res.status(500).json(client);
 
         }
-    }
+    },
+    //detalhes de apenas um cliente
+    async details(req, res) {
+        const {_id} = req.params;
+        const client = await Customers.findOne({_id});
+        res.json(client);
+    },
 
 }
