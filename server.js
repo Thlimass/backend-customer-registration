@@ -24,8 +24,8 @@ mongoose.connect('mongodb://localhost:27017/', {
 app.use(cors()); //segurança p/ informar quais dominios estão cosumindo os dados da API.
 app.use(cookieParser());
 app.use(express.json()); //Usa quando precisa enviar e receber JSON do BACK p/ o FRONT.
-
 app.use(routes);
+
 
 //Iniciando o servidor.
 app.listen(port, function () {

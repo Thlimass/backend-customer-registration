@@ -20,7 +20,7 @@ const DataSchema = new mongoose.Schema({
 
 //function p/ criptografar a senha antes de gravar
 DataSchema.pre('save', function (next) {
-    if (this.isModified("senhaCliente")) {
+    if (!this.isModified("senhaCliente")) {
         return next();
     }
     this.senhaCliente = bcrypt.hashSync(this.senhaCliente, 10);

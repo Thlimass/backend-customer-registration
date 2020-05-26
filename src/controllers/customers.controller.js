@@ -23,7 +23,7 @@ module.exports = {
 
         let data = {};
 
-        let client = Customers.findOne({emailCliente}); //verificar se já existi o email cadastrado.
+        let client = await Customers.findOne({emailCliente}); //verificar se já existi o email cadastrado.
         //se não existir, cadastra o cliente.
         if (!client) {
             data = {
