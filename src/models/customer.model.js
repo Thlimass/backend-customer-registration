@@ -27,5 +27,13 @@ DataSchema.pre('save', function (next) {
     next();
 });
 
+DataSchema.pre('findOneAndUpdate', function (next){
+    var password = this.getUpdate().senhaCliente+'';
+    if(password.length<55){
+        this.getUpdate().senhaCliente = bcrypt.hashSync(password,10);
+    }
+    next();
+})
+
 const customers = mongoose.model('Customers', DataSchema);
 module.exports = customers;

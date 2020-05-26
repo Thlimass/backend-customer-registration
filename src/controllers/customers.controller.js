@@ -67,7 +67,7 @@ module.exports = {
         const data = {
             primeiroNome, ultimoNome, emailCliente, senhaCliente, nascimento, cpf, estadoCivil, genero, cor, altura, tipoSanguineo, massaMuscular
         };
-        const client = await Customers.findByIdAndUpdate({_id},data,{new:true});
+        const client = await Customers.findOneAndUpdate({_id},data,{new:true});
         res.json(client);
     }
 }
