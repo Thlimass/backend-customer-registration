@@ -1,8 +1,10 @@
 const Customers = require('../models/customer.model');
 
 module.exports = {
-    index(req, res) {
-        res.json({message: 'Hello World from Controller Customer'});
+    //listagem de clientes
+    async index(req, res) {
+        const client = await Customers.find();
+        res.json(client);
     },
     async create(req, res) {
         console.log(req);
@@ -47,4 +49,5 @@ module.exports = {
 
         }
     }
+
 }
